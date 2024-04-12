@@ -28,4 +28,4 @@ jobs:
         run: npm install cypress
 
       - name: Run Cypress tests
-        run: npm run cy:run -- --record --parallel --group ${{ github.workflow }} --ci-build-id ${{ github.run_id }}
+        run: npm run cy:run -- --parallel --group ${{ github.workflow }} --ci-build-id ${{ github.run_id }}
