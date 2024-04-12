@@ -39,11 +39,12 @@ on:
   pull_request:
     branches:
       - main
+
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
 
-   strategy:
+    strategy:
       matrix:
         node-version: [16.x]
 
@@ -61,15 +62,14 @@ jobs:
             exit 1
           fi
 
-
-- name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          cache: "npm"
 
       - name: Npm install
         run: npm ci
 
-- name: Npx run
+      - name: Npx run
         run: npx cypress run --headless
