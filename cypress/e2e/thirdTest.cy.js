@@ -5,6 +5,6 @@ describe('Cypress Clearing Fields', () => {
       cy.visit('https://practice-automation.com/form-fields/')
       cy.get('#name').type('Stepan')
       cy.wait(2000)
-      cy.getById('#name').clear().type('Vasya')
+      cy.get('#name').clear().type('Vasya')
     })
   })
