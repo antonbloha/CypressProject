@@ -42,10 +42,9 @@ jobs:
       - name: Npx run
         run: npx cypress run --headless
 
-      - name: "Upload screenshots to Slack"
-        uses: trymbill/cypress-slack-video-upload-action@v1.3.0
+      - name: Upload screenshots
+        uses: actions/upload-artifact@latest
         if: failure()
         with:
-          token: ${{ secrets.SLACK_TOKEN }}
-          channels: "_tolk"
-          message-text: "Cypress tests failed! They have been placed in this thread, good luck."
+          name: cypress-snapshots
+          path: cypress/snapshots
