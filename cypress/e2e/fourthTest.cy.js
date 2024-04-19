@@ -7,7 +7,7 @@ describe('Forms, Buttons & Checkbox', () => {
         cy.url().should('contain','practice')
 
         cy.get('h1[itemprop = "headline"]').should('contain','Form Fields')
-        cy.get('#name').type('Vasya')
+        cy.get('#nam').type('Vasya')
 
         cy.contains('Water').click()
         cy.contains('Blue').click()
