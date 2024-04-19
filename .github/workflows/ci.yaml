@@ -47,4 +47,6 @@ jobs:
         if: failure()
         with:
           name: cypress-snapshots
-          path: cypress/snapshots
+          path: |
+            screenshots
+            target/surefire-reports/emailable-report.html
