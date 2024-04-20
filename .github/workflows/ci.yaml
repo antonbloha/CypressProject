@@ -40,7 +40,8 @@ jobs:
         run: npm ci
 
       - name: Npx run
-        run: npx cypress run --headless
+        run: |
+          npx cypress run --headless || (echo "Cypress run failed, displaying logs:" && cat cypress/logs/*.log && exit 1)
 
       - name: Upload screenshots
         uses: actions/upload-artifact@v3
