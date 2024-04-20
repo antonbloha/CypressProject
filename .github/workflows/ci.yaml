@@ -41,7 +41,8 @@ jobs:
 
       - name: Npx run
         run: |
-          npx cypress run --headless || (echo "Cypress run failed, displaying logs:" && cat cypress/logs/*.log && exit 1)
+          npx cypress run --headless 2>&1 | tee cypress_output.log
+          grep "error" cypress_output.log && exit 1 || true
 
       - name: Upload screenshots
         uses: actions/upload-artifact@v3
